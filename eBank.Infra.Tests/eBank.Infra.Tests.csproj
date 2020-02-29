@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <ApplicationIcon />
+
+    <OutputType>Exe</OutputType>
+
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="ExpectedObjects" Version="2.3.4" />
+    <PackageReference Include="Microsoft.CodeCoverage" Version="16.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Moq" Version="4.13.1" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="coverlet.collector" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eBank.API\eBank.API.csproj" />
+    <ProjectReference Include="..\eBank.Core\eBank.Core.csproj" />
+    <ProjectReference Include="..\eBank.Infra.Data\eBank.Infra.Data.csproj" />
+    <ProjectReference Include="..\eBank.Infra.Repositories\eBank.Infra.Repositories.csproj" />
+    <ProjectReference Include="..\eBank.Infra.Services\eBank.Infra.Services.csproj" />
+  </ItemGroup>
+
+</Project>
