@@ -23,8 +23,7 @@ namespace eBank.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
         {
-            if (query == null) 
-                throw new ArgumentNullException(nameof(query));             
+            ValidateQuery(query);
             
             var inputs = query.Variables.ToInputs();
 
@@ -40,6 +39,12 @@ namespace eBank.API.Controllers
                 return BadRequest(result);
             
             return Ok(result);
+        }
+
+        private void ValidateQuery(GraphQLQuery query)
+        {
+            if (query == null)
+                throw new ArgumentNullException(nameof(query));
         }
     }
 }

@@ -2,10 +2,9 @@
 using eBank.Infra.Repositories.Interfaces;
 using eBank.Infra.Services.Interfaces;
 using eBank.Infra.Services.Models;
+using eBank.Infra.Services.Validators;
 using System;
 using System.Threading.Tasks;
-using FluentValidation;
-using eBank.Infra.Services.Validators;
 
 namespace eBank.Infra.Services.Services
 {

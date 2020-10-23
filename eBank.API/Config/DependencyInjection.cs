@@ -27,9 +27,19 @@ namespace eBank.API.Config
 
             services.AddDbContext<BankAccountContext>(opt => opt
                 .UseNpgsql(configuration.GetConnectionString("DefaultConnection"))
-               .UseLoggerFactory(new LoggerFactory().AddConsole((category, level) => level == LogLevel.Information && category == DbLoggerCategory.Database.Command.Name, true))
+               //.UseLoggerFactory(
+               //     new LoggerFactory()
+               //     .AddConsole((category, level) => level == LogLevel.Information && 
+               //                 category == DbLoggerCategory.Database.Command.Name, 
+               //                 true))
                .EnableSensitiveDataLogging());
 
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddConfiguration(configuration.GetSection("Logging"));
+                loggingBuilder.AddConsole();
+                loggingBuilder.AddDebug();
+            });
 
             services.AddAutoMapper(typeof(MappingProfile));
 
